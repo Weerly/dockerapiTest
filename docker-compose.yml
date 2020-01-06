@@ -5,8 +5,8 @@ networks:
     driver: bridge 
 
 services:
-  dockerapi:
-    image: dockerapi:latest
+  app:
+    image: app:latest
     depends_on:
       - "postgres_image"
     build:
