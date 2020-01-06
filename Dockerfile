@@ -13,4 +13,4 @@ WORKDIR /app
 
 COPY --from=build /app/out .
 
-ENTRYPOINT ["dotnet", "dockerapi.dll"]`
+ENTRYPOINT ["dotnet", "dockerapi.dll"]

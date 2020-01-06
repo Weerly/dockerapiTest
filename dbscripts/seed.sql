@@ -1,7 +1,7 @@
 
-\connect blogdb
+\c blogdb
 
-CREATE TABLE blog
+CREATE TABLE IF NOT  EXISTS blog
 (
     id serial PRIMARY KEY,
     title  VARCHAR (50)  NOT NULL,
@@ -14,3 +14,4 @@ Insert into blog(title,description) values( 'Title 1','Description 1');
 Insert into blog(title,description) values( 'Title 2','Description 2');
 Insert into blog(title,description) values( 'Title 3','Description 3');
 Insert into blog(title,description) values( 'Title 4','Description 4');
+Insert into blog(title,description) values( 'Title 5','Description 5');
