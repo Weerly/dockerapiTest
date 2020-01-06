@@ -5,7 +5,7 @@
   ]
 }, {
   "name": "gcr.io/cloud-builders/docker",
-  "args": ["tag", "workspace_app:latest", "gcr.io/weerly3/dockerapitest"]
+  "args": ["tag", "app:latest", "gcr.io/weerly3/dockerapitest"]
 }],
   "images": ["gcr.io/weerly3/dockerapitest"]
 }
