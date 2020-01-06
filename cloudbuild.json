@@ -1,0 +1,11 @@
+﻿{"steps" :[{
+  "name": "docker/compose:1.19.0",
+  "args": [
+    "up", "-d"
+  ]
+}, {
+  "name": "gcr.io/cloud-builders/docker",
+  "args": ["tag", "workspace_dockerapi:latest", "gcr.io/weerly3/dockerapitest"]
+}],
+  "images": ["gcr.io/weerly3/dockerapitest"]
+}
