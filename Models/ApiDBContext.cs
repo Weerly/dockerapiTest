@@ -10,12 +10,15 @@ namespace dockerapi.Models{
         public ApiDbContext(DbContextOptions<ApiDbContext> options)
        : base(options)
         {
-
+            Console.WriteLine(options);
         }
         public DbSet<Blog> Blogs { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // modelBuilder.HasDefaultSchema("public");
             base.OnModelCreating(modelBuilder);
+            Console.WriteLine(modelBuilder);
+            //modelBuilder.Entity<Glog>().ToTable()
 
             new BlogMap(modelBuilder.Entity<Blog>());
         }

@@ -11,10 +11,24 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="EntityFramework.CodeFirst" Version="1.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="2.1.2" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="2.1.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="3.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+  </ItemGroup>
+
+  <ItemGroup>
+  </ItemGroup>
+
+  <ItemGroup>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
   </ItemGroup>
 
 </Project>

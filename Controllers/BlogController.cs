@@ -1,3 +1,4 @@
+using System;
 using dockerapi.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Encodings.Web;
@@ -34,6 +35,32 @@ namespace dockerapi.Controllers
                 Title = c.Title,
                 Description = c.Description
             }).ToList();
+        }
+
+        [HttpPost]
+        public string Post()
+        {
+            try
+            {
+                Blog f = new Blog();
+                {
+                    f.Title = "sdsdsds";
+                    f.Description = "asadfsfdfsddsfsfsdfdsfds";
+                }
+                _context.Blogs.Add(f);
+                _context.SaveChanges();
+                // var r = _context.Blogs.Where(b => b.Title.Contains("Title")).Select((c) => new
+                // {
+                //     Id = c.Id,
+                //     Title = c.Title,
+                //     Description = c.Description
+                // }).ToList();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            return "dsds";
         }
 
         /// <summary>

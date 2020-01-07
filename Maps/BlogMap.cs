@@ -8,6 +8,10 @@ namespace dockerapi.Maps{
     #pragma warning disable CS1591
        public class BlogMap
     {
+        public BlogMap()
+        {
+               
+        }
         public BlogMap(EntityTypeBuilder<Blog> entityBuilder)
         {
             entityBuilder.HasKey(x => x.Id);

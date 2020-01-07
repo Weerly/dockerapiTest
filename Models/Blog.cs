@@ -10,5 +10,19 @@ namespace dockerapi.Models
         public string Title { get; set; }
         public string Description { get; set; }
     }
+    
+    public class Action
+    {
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+    }
+    
+    public class Glog
+    {
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+    }
 #pragma warning restore CS1591
 }

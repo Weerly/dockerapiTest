@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Migrations;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -32,12 +35,23 @@ namespace dockerapi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var connectionString = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING");
+            var connectionString = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING")
+                                   ?? "host=localhost;port=5432;database=blogdb;username=bloguser;password=bloguser";
             services.AddDbContext<ApiDbContext>(options =>
                 options.UseNpgsql(
                     connectionString
                 )
             );
+
+            // var configuration = new Configuration();
+            // configuration.TargetDatabase = new DbConnectionInfo(connectionString);
+            //
+            // var migrator = new DbMigrator(configuration);
+            // migrator.Update();
+
+            //var migrator = new DbMigrator(configuration);
+            //migrator.Update();
+
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddSwaggerGen(c =>
@@ -71,11 +85,15 @@ namespace dockerapi
                 app.UseHsts();
             }
 
-            app.UseSwagger();
+            app.UseSwagger(o =>
+                o.RouteTemplate = "docs/{documentName}/docs.json"
+            );
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Web API V1");
+                c.RoutePrefix = "docs";
+                c.DocumentTitle = "My Swagger UI";
+                c.SwaggerEndpoint("/docs/v1/docs.json", "Web API V1");
             });
             app.UseMvc();
         }
